@@ -1,0 +1,37 @@
+<div class="header">
+  <div class="show-mobile">
+    <div>
+      <button>
+        <img src="../../../../assets/icon_menu.svg" alt="menu">
+      </button>
+      <a href="">
+        <img width="60" height="50" src="../../../../assets/LogoSinFondo.png" alt="logo">
+      </a>
+      <a href="" *ngIf="!loggedIn">Login</a>
+      <div *ngIf="loggedIn">
+        <img class="logo" width="24" height="25" [src]="user?.image" alt="logo">
+        <div class="account">{{ user?.email }}</div>
+        <a href="" (click)="signOff()">Sign off</a>
+      </div>
+    </div>
+  </div>
+  <div class="hide-mobile">
+    <div>
+      <nav>
+        <a class="logo" href="">
+          <img width="60" height="50" src="../../../../assets/LogoSinFondo.png" alt="logo">
+        </a>
+        <ul>
+          <li><a routerLink="">Inicio</a></li>
+          <li><a href="">Clothes</a></li>
+          <li><a href="">Electronics</a></li>
+        </ul>
+      </nav>
+      <div class="info">
+        <div class="account" *ngIf="loggedIn">{{ user?.email }}</div>
+        <div  (click)="signOff()" class="login-button" *ngIf="loggedIn">Logaout</div>
+        <div routerLink="/login" class="login-button" *ngIf="!loggedIn">Login</div>
+      </div>
+    </div>
+  </div>
+</div>
